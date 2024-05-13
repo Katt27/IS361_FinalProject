@@ -1,33 +1,41 @@
 # IS361_FinalProject
 
-# Flight Data Analysis Project
+# Sample Flight Data SQL
 
-This repository contains the SQL scripts and documentation necessary to perform a comprehensive flight data analysis. The data is processed to find patterns related to delays and operations.
+This repository contains SQL scripts for creating and populating the `Flights` table with sample flight data.
 
-## Project Structure
+## Getting Started
 
-- `flights_query.sql` - SQL script to query and aggregate flight data.
-- `Data Export Instructions.md` - Instructions on how to export query results to CSV for analysis in Power BI.
+### Prerequisites
 
-## Setup Instructions
+- MySQL database
+- SQL client or access to a MySQL server environment
 
-### Database Setup
-1. Ensure MySQL is installed and running on your system.
-2. Create or select a database that contains the required `flights` and `planes` tables.
-3. Run the SQL script `flights_query.sql` to aggregate the data needed for analysis.
+### Setting up the database
 
-### Data Export
-Follow the instructions in `Data Export Instructions.md` to export the required data from MySQL to a CSV file, which will be used in Power BI.
+1. **Create the Flights table:**
+   - Run the SQL script `Sample_Flight_Data_SQL.sql` to create the `Flights` table.
+   - This script will also populate the table with sample data.
 
-### Analysis in Power BI
-1. Import the exported CSV file into Power BI.
-2. Create visualizations as described in the project outline to analyze the data.
-3. Publish the Power BI report and provide a link in this document if required.
+### Connecting to Power BI
 
-## Usage
-- Run the SQL queries in MySQL Workbench or any SQL interface configured to access your database.
-- Export the data and analyze it in Power BI according to the guidelines provided in this repository.
+- To visualize this data using Power BI:
+  1. Open Power BI.
+  2. Choose "Get Data" and select "MySQL database".
+  3. Provide the connection details for your MySQL server where the `Flights` table is stored.
+  4. Load the data and build your reports.
 
-## Contributing
-Feel free to fork this repository and propose changes through pull requests.
+## About the Data
+
+The `Flights` table includes the following fields:
+- `Date`: Date of the flight.
+- `Tailnum`: Aircraft tail number.
+- `Flight_Number`: Flight number.
+- `Origin`: Origin airport.
+- `Destination`: Destination airport.
+- `Airline`: Airline operating the flight.
+- `Engine_Type`: Type of engine.
+- `Arr_Delay`: Arrival delay in minutes.
+
+Feel free to explore and visualize the data as needed for your analyses!
 

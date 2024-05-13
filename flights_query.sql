@@ -1,23 +1,27 @@
--- Use this line if your MySQL doesn't default to the correct database
-USE your_database_name;
+CREATE TABLE flights (
+    FlightID INT PRIMARY KEY,
+    Origin VARCHAR(50),
+    Destination VARCHAR(50),
+    Date DATE,
+    TailNum VARCHAR(50),
+    ArrDelay INT
+);
 
-SELECT 
-    f.origin, 
-    DATE(f.date) AS date, 
-    f.tailnum, 
-    p.manufacturer,
-    AVG(f.arr_delay) AS avg_delay,
-    COUNT(*) AS flight_count
-FROM 
-    flights f
-JOIN 
-    planes p ON f.tailnum = p.tailnum
-GROUP BY 
-    f.origin, 
-    DATE(f.date), 
-    f.tailnum, 
-    p.manufacturer
-ORDER BY 
-    f.origin, 
-    DATE(f.date), 
-    f.tailnum;
+CREATE TABLE planes (
+    TailNum VARCHAR(50) PRIMARY KEY,
+    Manufacturer VARCHAR(100)
+);
+
+SELECT
+    f.Origin,
+    f.TailNum AS Aircraft,
+    p.Manufacturer,
+    DATE_FORMAT(f.Date, '%Y-%m-%d') AS Year_Month_Day,
+    AVG(f.ArrDelay) AS Average_Delay,
+    COUNT(*) AS Flight_Count
+FROM
+    flights AS f
+JOIN
+    planes AS p ON f.TailNum = p.TailNum
+GROUP BY
+    f.Origin, Year_Month_Day, f.TailNum, p.Manufacturer;
